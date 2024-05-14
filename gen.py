@@ -14,7 +14,7 @@ def generate_random_message():
     current_time = datetime.now().strftime("%b %d %H:%M:%S") 
     hostname = "MyComputerName" 
     words = [fake.word() for _ in range(5)] 
-    message = ''.join(words)
+    message = ' '.join(words)
     log_type = random.choice(["alert", "info", "warn", "event"])
     return f"<{priority}>{current_time} {hostname} [{log_type}]: {message}"
 
