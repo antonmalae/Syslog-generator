@@ -26,7 +26,7 @@ def send_syslog_message(ip, port, message):
     finally:
         sock.close()
 
-def send_periodic_syslog(ip, port, events_per_second)):
+def send_periodic_syslog(ip, port, events_per_second):
     time_interval = 1.0 / events_per_second
     while True:
         message = generate_random_message()
