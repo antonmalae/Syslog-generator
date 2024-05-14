@@ -1,16 +1,19 @@
 import socket
-import random
 import string
 import threading
 import time
 from datetime import datetime
 import sys
+from faker import Faker
+
+fake = Faker()
 
 def generate_random_message():
     priority = random.randint(0, 7) 
     current_time = datetime.now().strftime("%b %d %H:%M:%S") 
     hostname = "MyComputerName" 
-    message = ''.join(random.choices(string.ascii_letters + string.digits, k=20))
+    words = [fake.word() for _ in range(5)] 
+    message = ''.join(words)
     log_type = random.choice(["alert", "info", "warn", "event"])
     return f"<{priority}>{current_time} {hostname} [{log_type}]: {message}"
 
