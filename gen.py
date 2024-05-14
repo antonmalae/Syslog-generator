@@ -26,19 +26,25 @@ def send_syslog_message(ip, port, message):
     finally:
         sock.close()
 
-def send_periodic_syslog(ip, port):
+def send_periodic_syslog(ip, port, events_per_second)):
+    time_interval = 1.0 / events_per_second
     while True:
         message = generate_random_message()
         send_syslog_message(ip, port, message)
-        time.sleep(0.2)  
+        time.sleep(time_interval) 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage: python script.py [IP_ADDRESS] [PORT]")
+    if len(sys.argv) < 4:
+        print("Usage: python script.py [IP_ADDRESS] [PORT] [EVENTS_PER_SECOND]")
         sys.exit(1)
 
     ip_address = sys.argv[1]
     port_number = int(sys.argv[2])
+    events_per_second = float(sys.argv[3])
 
-    sys_thread = threading.Thread(target=send_periodic_syslog, args=(ip_address, port_number))
+    if events_per_second < 1 or events_per_second > 1000:
+        print("EVENTS_PER_SECOND must be between 1 and 1000")
+        sys.exit(1)
+
+    sys_thread = threading.Thread(target=send_periodic_syslog, args=(ip_address, port_number, events_per_second))
     sys_thread.start()
