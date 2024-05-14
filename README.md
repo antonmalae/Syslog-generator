@@ -2,6 +2,22 @@
 Random Syslog Message Generator
 This Python script is a random Syslog message generator that sends messages to a specified IP address and port using the UDP protocol. The script generates random messages with different priority levels and sends them to a given network address.
 
+# Usage
+To use the script, you must pass the IP address, port, and number of events per second as arguments when running. For example:
+
+> python script.py 192.168.1.100 514 100
+where 192.168.1.100 is the IP address, 514 is the port number, and 100 is the number of events per second.
+
+## Dependencies
+The script is written in Python 3 and uses the following libraries:
+- socket
+- random
+- string
+- threading
+- time
+- datetime
+- sys
+
 # Генератор случайных Syslog-сообщений
 Этот Python-скрипт представляет собой генератор случайных Syslog-сообщений, который отправляет сообщения на указанный IP-адрес и порт с использованием протокола UDP. Скрипт генерирует случайные сообщения с разными уровнями приоритета и отправляет их на заданный сетевой адрес.
 
