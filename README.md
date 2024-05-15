@@ -5,7 +5,7 @@ This Python script is a random Syslog message generator that sends messages to a
 # Usage
 To use the script, you must pass the IP address, port, and number of events per second as arguments when running. For example:
 
-<code>python script.py [IP ADDRESS] [PORT] [EPS] [MODE]</code>
+<code>python script.py [IP ADDRESS] [PORT] [EPS] [MODE] [BACKGROUND (optional)]<code>
 > python script.py 192.168.1.100 514 100 random
 
 where 192.168.1.100 is the IP address, 514 is the port number, and 100 is the number of events per second.
@@ -14,15 +14,12 @@ where 192.168.1.100 is the IP address, 514 is the port number, and 100 is the nu
 - random - generate random messages
 - file - read messages from file
 
-## Dependencies
+Option <code>background<code> run the application in the background process
+
+## requirements
 The script is written in Python 3 and uses the following libraries:
-- socket
-- random
-- string
-- threading
-- time
-- datetime
-- sys
+- faker
+- python-daemon
 
 # Генератор случайных Syslog-сообщений
 Этот Python-скрипт представляет собой генератор случайных Syslog-сообщений, который отправляет сообщения на указанный IP-адрес и порт с использованием протокола UDP. Скрипт генерирует случайные сообщения с разными уровнями приоритета и отправляет их на заданный сетевой адрес.
@@ -33,15 +30,10 @@ The script is written in Python 3 and uses the following libraries:
 > <code>python script.py 192.168.1.100 514 100</code>
 где 192.168.1.100 - это IP-адрес, 514 - номер порта, а 100 - количество событий в секунду.
 
-## Зависимости
-Скрипт написан на Python 3 и использует следующие библиотеки:
-- socket
-- random
-- string
-- threading
-- time
-- datetime
-- sys
+## Требования
+Скрипт написан на Python 3 и использует следующие библиотеки, которые необходимо установить:
+- faker
+- python-daemon
 
 # Описание работы
 Скрипт генерирует случайное сообщение с уровнем приоритета от 0 до 7.
