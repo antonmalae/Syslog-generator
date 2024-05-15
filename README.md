@@ -5,7 +5,7 @@ This Python script is a random Syslog message generator that sends messages to a
 # Usage
 To use the script, you must pass the IP address, port, and number of events per second as arguments when running. For example:
 
-<code>python script.py [IP ADDRESS] [PORT] [EPS] [MODE] [BACKGROUND (optional)]<code>
+<code>python script.py [IP ADDRESS] [PORT] [EPS] [MODE] [BACKGROUND (optional)]</code>
 > python script.py 192.168.1.100 514 100 random
 
 where 192.168.1.100 is the IP address, 514 is the port number, and 100 is the number of events per second.
@@ -14,7 +14,7 @@ where 192.168.1.100 is the IP address, 514 is the port number, and 100 is the nu
 - random - generate random messages
 - file - read messages from file
 
-Option <code>background<code> run the application in the background process
+Option <code>background</code> run the application in the background process
 
 ## requirements
 The script is written in Python 3 and uses the following libraries:
